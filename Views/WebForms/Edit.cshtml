@@ -1,0 +1,45 @@
+﻿@model MVCDemo.StuInfo
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <title>Edit</title>
+</head>
+<body>
+    <h2>Edit</h2>
+    <div class="alert alert-primary" role="alert">
+        You are modifying student information.
+    </div>
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(model => model.SID)
+        <ul class="list-group">
+            <li class="list-group-item">
+                <div class="input-group input-group-lg">
+                    <span class="input-group-addon" id="sizing-addon1">学生姓名:</span>
+                    @Html.EditorFor(model => model.SName, new { @class = "form-control", @arialabel = "Username" ,@ariadescribedby = "sizing-addon1",@border="0" })
+                    @*<input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="sizing-addon1">*@
+                </div>
+             </li>
+            <li class="list-group-item">
+                <div class="input-group input-group-lg">
+                    <span class="input-group-addon" id="sizing-addon1">班&nbsp;级&nbsp;&nbsp;ID:</span>
+                    @Html.EditorFor(model => model.ClassID, new { @class = "form-control", @arialabel = "ClassID", @ariadescribedby = "sizing-addon1", @border = "0" })
+                    @*<input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="sizing-addon1">*@
+                </div>
+            </li>
+            @*@<li class="list-group-item">班级ID:@Html.EditorFor(model => model.ClassID)</li>*@
+        </ul>
+        <div>
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Save</button>
+        </div>
+    }
+    <div>@Html.ActionLink("Back to List", "WebForm1")</div>
+</body>
+</html>

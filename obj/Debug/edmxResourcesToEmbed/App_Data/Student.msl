@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="StudentScoreModelStoreContainer" CdmEntityContainer="StudentScoreEntities">
+    <EntitySetMapping Name="T_Student">
+      <EntityTypeMapping TypeName="StudentScoreModel.T_Student">
+        <MappingFragment StoreEntitySet="T_Student">
+          <ScalarProperty Name="SID" ColumnName="SID" />
+          <ScalarProperty Name="SPwd" ColumnName="SPwd" />
+          <ScalarProperty Name="SName" ColumnName="SName" />
+          <ScalarProperty Name="SSex" ColumnName="SSex" />
+          <ScalarProperty Name="SAge" ColumnName="SAge" />
+          <ScalarProperty Name="DepartID" ColumnName="DepartID" />
+          <ScalarProperty Name="ClassID" ColumnName="ClassID" />
+          <ScalarProperty Name="PoliteFace" ColumnName="PoliteFace" />
+          <ScalarProperty Name="Nation" ColumnName="Nation" />
+          <ScalarProperty Name="identitycard" ColumnName="identitycard" />
+          <ScalarProperty Name="NativePlace" ColumnName="NativePlace" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="EnrolTime" ColumnName="EnrolTime" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Adress" ColumnName="Adress" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,87 @@
+﻿@model PagedList.IPagedList<MVCDemo.StuInfo>
+@using PagedList.Mvc;
+<style>
+    #div1 {
+        margin: 0 auto;
+        width: 1000px;
+        height: 1000px;
+    }
+
+    table th {
+        text-align: center; /** 设置水平方向居中 */
+        vertical-align: middle; /** 设置垂直方向居中 */
+    }
+</style>
+<body>
+    <div id="div1">
+        <div id="tableID">
+            @using (Ajax.BeginForm("WebForm1", new AjaxOptions { UpdateTargetId = "tableID" }))
+            {
+                <div class="alert alert-primary" role="alert">
+                    Student Information
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        @*@@using (Html.BeginForm("WebForm1", "WebForms", FormMethod.Get))*@
+                        <div class="input-group">
+                            @Html.TextBox("nameSearch", ViewBag.CurrentFilter as string, new { @class = "form-control", @id = "namffrveSearch", @placeholder = "Find By Name...", @arialabel = "Search for..." })
+                            @*@<input type="text" class="form-control" placeholder="Find By Name..." aria-label="Search for...">*@
+                            <span class="input-group-btn">
+                                <button class="btn btn-secondary" id="btnSearch" type="submit">Go!</button>
+                            </span>
+                        </div>
+                    </div>
+                    <p class="sub-header">@Ajax.ActionLink("Create New", "Create", new AjaxOptions { UpdateTargetId = "tableID" })</p>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">
+                                @Ajax.ActionLink("学生ID", "WebForm1", new { sortOrder = ViewBag.NameSortParm }, new AjaxOptions { UpdateTargetId = "tableID" })
+                                @*@Html.ActionLink("学生ID", "WebForm1", new { sortOrder = ViewBag.NameSortParm })*@
+                            </th>
+                            <th scope="col">
+                                @Ajax.ActionLink("学生姓名", "WebForm1", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter }, new AjaxOptions { UpdateTargetId = "tableID" })
+                                @*@Html.ActionLink("学生姓名", "WebForm1", new { sortOrder = ViewBag.NameSortParm,currentFilter=ViewBag.CurrentFilter })*@
+                            </th>
+                            <th scope="col">
+                                班级ID
+                            </th>
+                            <th scope="col">
+                                操作
+                            </th>
+                        </tr>
+                    </thead>
+                    @foreach (var item in Model)
+                {
+                        <tbody>
+                            <tr>
+                                <th>
+                                    @item.SID
+                                </th>
+                                <th>
+                                    @item.SName
+                                </th>
+                                <th>
+                                    @item.ClassID
+                                </th>
+                                <th>
+                                    <div class="btn-group btn-group-sm" role="group" aria-label="Default">
+                                        @Html.ActionLink("删除", "Delete", new { id = item.SID }, new { @class = "btn btn-secondary" })
+                                        @Html.ActionLink("修改", "Edit", new { id = item.SID }, new { @class = "btn btn-secondary" })
+                                        @*@<button type="button" class="btn btn-secondary" id="btnDelete">删除</button>*@
+                                        @**<button type="button" class="btn btn-secondary" id="btnEdit">修改</button>*@
+                                    </div>
+                                </th>
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+            }
+            <div>
+                @*@@Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) 0f @Model.PageCount*@
+                @Html.PagedListPager(Model, page => Url.Action("WebForm1", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+            </div>
+        </div>
+    </div>
+</body>

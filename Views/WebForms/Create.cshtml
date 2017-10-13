@@ -1,0 +1,48 @@
+﻿@model MVCDemo.StuInfo
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <title>Create View</title>
+</head>
+<body>
+    <h2>Create</h2>
+    <div class="alert alert-primary" role="alert">
+        You are creating student information.
+    </div>
+    @using (Html.BeginForm())
+    {
+        <ul class="list-group">
+            <li class="list-group-item">
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon3">学&nbsp;生&nbsp;I&nbsp;D:</span>
+                    @Html.EditorFor(model => model.SID, new { @class = "form-control", @id = "basic-url", @ariadescribedby = "basic-addon3" })
+                    @*@<input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">*@
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon3">学生姓名:</span>
+                    @Html.EditorFor(model => model.SName, new { @class = "form-control", @id = "basic-url", @ariadescribedby = "basic-addon3" })
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon3">班&nbsp;级&nbsp;I&nbsp;D:</span>
+                    @Html.EditorFor(model => model.ClassID, new { @class = "form-control", @id = "basic-url", @ariadescribedby = "basic-addon3" })
+                </div>
+            </li>
+        </ul>
+                <div>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Create</button>
+                </div>
+                }
+                <div>@Html.ActionLink("Back to List", "WebForm1")</div>
+    </body>
+</html>

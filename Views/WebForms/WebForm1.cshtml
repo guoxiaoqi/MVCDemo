@@ -1,0 +1,28 @@
+﻿@*@model IEnumerable<MVCDemo.StuInfo>*@
+@model PagedList.IPagedList<MVCDemo.StuInfo>
+@using PagedList.Mvc;
+@using Webdiyer.WebControls.Mvc
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script src="~/Scripts/jquery-3.2.1.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/Scripts/MicrosoftMvcAjax.js"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+    <title>Main View</title>
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    
+    @Html.Partial("Page")
+</body>
+</html>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="StudentScoreModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="T_Student">
+    <Key>
+      <PropertyRef Name="SID" />
+    </Key>
+    <Property Name="SID" Type="int" Nullable="false" />
+    <Property Name="SPwd" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="SSex" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="SAge" Type="bigint" Nullable="false" />
+    <Property Name="DepartID" Type="int" Nullable="false" />
+    <Property Name="ClassID" Type="int" Nullable="false" />
+    <Property Name="PoliteFace" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Nation" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="identitycard" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="NativePlace" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Birthday" Type="datetime" Nullable="false" />
+    <Property Name="EnrolTime" Type="datetime" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="20" />
+    <Property Name="Adress" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="StudentScoreModelStoreContainer">
+    <EntitySet Name="T_Student" EntityType="Self.T_Student" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
